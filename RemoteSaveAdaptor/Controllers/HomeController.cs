@@ -93,19 +93,6 @@ namespace UrlAdaptor.Controllers
 
         }
 
-        //public object Delete([FromBody] ICRUDModel value)
-        //{
-
-        //    if (value.Deleted != null)
-        //    {
-        //        for (var i = 0; i < value.Deleted.Count; i++)
-        //        {
-        //            TreeGridItems.GetSelfData().Remove(TreeGridItems.GetSelfData().Where(ds => ds.TaskId == value.Deleted[i].TaskId).FirstOrDefault());
-        //        }
-        //    }
-        //    return new { deleted = value.Deleted };
-        //}
-
       public class ICRUDModel
         {
             public TreeGridItems value;
