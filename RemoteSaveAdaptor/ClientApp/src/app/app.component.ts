@@ -19,22 +19,13 @@ export class AppComponent {
   constructor(private http: HttpClient) { }
   ngOnInit(): void {
     this.loadGridData();
-    setTimeout(() => {
-      this.data = new DataManager({
-        json: this.value,
-
-        updateUrl: '/Home/Update',
-        insertUrl: '/Home/Insert',
-        removeUrl: '/Home/Delete',
-        adaptor: new RemoteSaveAdaptor()
-      });
-    }, 1000);
-
-    this.pagesettings = { pageSize: 15 };
-    this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true, };
+    
+    this.pagesettings = { pageSize: 14 };
+    this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true, mode:'Row'};
     this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search'];
 
   }
+  
   loadGridData(): void {
     const ajax = new Ajax({
       url: '/Home/GetSelfData',
@@ -53,7 +44,15 @@ export class AppComponent {
     ajax.send();
     ajax.onSuccess = (data: any) => {
       this.value = data;
-      console.log(data);
+     
+      this.data = new DataManager({
+        json: this.value,
+
+        updateUrl: '/Home/Update',
+        insertUrl: '/Home/Insert',
+        removeUrl: '/Home/Remove',
+        adaptor: new RemoteSaveAdaptor()
+      });
     };
     ajax.onFailure = (error: any) => {
       console.error('Error:', error);
