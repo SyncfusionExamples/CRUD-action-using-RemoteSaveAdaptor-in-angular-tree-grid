@@ -2,10 +2,25 @@ import { Component, ViewChild } from '@angular/core';
 import { TreeGridComponent, ToolbarItems, EditSettingsModel } from '@syncfusion/ej2-angular-treegrid';
 import { DataManager, RemoteSaveAdaptor } from '@syncfusion/ej2-data';
 import { HttpClient } from '@angular/common/http';
+
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { FormsModule } from '@angular/forms';
 import { Ajax } from '@syncfusion/ej2-base';
+import { FilterService, GridAllModule, SortService,  GroupService } from '@syncfusion/ej2-angular-grids';
+
+import { RowDDService, ToolbarService, TreeGridAllModule, EditService, PageService } from '@syncfusion/ej2-angular-treegrid';
+
 
 @Component({
   selector: 'app-root',
+   providers: [EditService, SortService, ToolbarService, RowDDService, FilterService, PageService],
+    standalone:true,
+    imports: [
+    FormsModule,
+    GridAllModule, TreeGridAllModule,
+  ],
   templateUrl: './app.component.html'
 })
 export class AppComponent {

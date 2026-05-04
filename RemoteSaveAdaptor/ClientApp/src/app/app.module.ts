@@ -1,13 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { FilterService, GridAllModule, SortService,  GroupService } from '@syncfusion/ej2-angular-grids';
-
-import { RowDDService, ToolbarService, TreeGridAllModule, EditService, PageService } from '@syncfusion/ej2-angular-treegrid';
 
 @NgModule({
   declarations: [
